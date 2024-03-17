@@ -15,7 +15,12 @@ const Event = require("./models/Event")
 require("./db/connection")
 
 app.use(express.json())
-app.use(cors())
+app.use(express.urlencoded({extended:false}));
+app.use(cors(
+    {
+        origin:["http://localhost:3000" , "https://sachinjha03.github.io/event-registration/"]
+    }
+))
 
 app.get("/" , (req,res) => {
     res.send("Hello from backend")
