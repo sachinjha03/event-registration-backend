@@ -17,6 +17,9 @@ require("./db/connection")
 app.use(express.json())
 app.use(cors())
 
+app.get("/" , (req,res) => {
+    res.send("Hello from backend")
+})
 
 app.post('/order', async (req, res) => {
     const options = {
