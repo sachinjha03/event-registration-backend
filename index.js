@@ -17,9 +17,9 @@ require("./db/connection")
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use(cors(
-    {
-        origin:["http://localhost:3000" , "https://sachinjha03.github.io/event-registration/"]
-    }
+    // {
+    //     origin:["http://localhost:3000" , "https://sachinjha03.github.io/event-registration/"]
+    // }
 ))
 
 app.get("/" , (req,res) => {
