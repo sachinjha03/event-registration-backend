@@ -15,16 +15,8 @@ const Event = require("./models/Event")
 require("./db/connection")
 
 app.use(express.json())
-app.use(express.urlencoded({extended:false}));
-app.use(cors(
-    // {
-    //     origin:["http://localhost:3000" , "https://sachinjha03.github.io/event-registration/"]
-    // }
-))
+app.use(cors())
 
-app.get("/" , (req,res) => {
-    res.send("Hello from backend")
-})
 
 app.post('/order', async (req, res) => {
     const options = {
@@ -48,6 +40,7 @@ app.post("/user-registration" , async(req,res) => {
     const registrationNumber = Math.floor(10000000 + Math.random() * 90000000);
     const newUser = new Event({
         name:req.body.name,
+        studentIdentity : req.body.studentIdentity,
         email:req.body.email,
         contact:req.body.contact,
         event:req.body.event,
